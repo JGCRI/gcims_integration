@@ -1,0 +1,18 @@
+navbar:
+  title: "gcims_integration"
+  left:
+    - icon: fa-home
+      href: index.html
+    - text: "Integration"
+      icon: fas fa-book
+      href: integration.html
+    - text: "Disclaimer"
+      href: disclaimer.html
+    - icon: fab fa-github
+      href: https://github.com/JGCRI/integration
+
+
+output:
+  html_document:
+    theme: cosmo
+    css: "style.css"

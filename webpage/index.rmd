@@ -1,0 +1,25 @@
+---
+pagetitle: integration
+---
+
+<div class="header_logo">
+<img src="images/logo_gcims_white.png" style="float:right;height:30px; padding-top:10px;">
+<img src="images/logo_pnnl_white.png" style="float:right;height:40px; padding-right:10px;">
+</div>
+
+<!-------------------------->
+<!-------------------------->
+### **GCIMS Integration**
+<!-------------------------->
+<!-------------------------->
+<p align="center"> <img src="images/divider.png"></p>
+
+<a href = "integration.html">
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("images/cassandra.png")
+```
+</a>
+
+This website describes the integration of GCIMS tools focusing on standardized and efficient data management, seamlessly interoperability, feedbacks between models and community access to curated large ensemble scenario inputs and outputs.
+
+<p align="center"> <img src="images/divider.png"></p>
