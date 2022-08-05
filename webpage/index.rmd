@@ -1,25 +1,98 @@
 ---
-pagetitle: integration
+pagetitle: Integration
 ---
 
-<div class="header_logo">
-<img src="images/logo_gcims_white.png" style="float:right;height:30px; padding-top:10px;">
-<img src="images/logo_pnnl_white.png" style="float:right;height:40px; padding-right:10px;">
-</div>
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo=FALSE, out.width="100%", results = "show")
+```
 
 <!-------------------------->
 <!-------------------------->
-### **GCIMS Integration**
+<h1 style="float:left;font-size:60px;vertical-align:middle"> Welcome </h1>
+<img src="images/logo_pnnl.png" style="float:right;height:120px;">
 <!-------------------------->
 <!-------------------------->
 <p align="center"> <img src="images/divider.png"></p>
 
-<a href = "integration.html">
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
-knitr::include_graphics("images/cassandra.png")
+GCIMS Integration promotes transparent, robust and reproducible workflows by maintaining, testing and validating the various tools and data used across the GCIMS ecosystem. The effort is divided into the following six focus areas.
+
+<p align="center"> <img src="images/divider.png"></p>
+
+<div class="container_map_outer">
+<div class="container_map">
+```{r software}
+knitr::include_graphics('images/index_software.PNG')
+```
+<div class="img-top">
+  <a href = "index.html">
+```{r software_top}
+knitr::include_graphics('images/index_software_top.PNG')
 ```
 </a>
+</div>
+</div>
+<div class="container_map">
+```{r standards}
+knitr::include_graphics('images/index_standards.PNG')
+```
+<div class="img-top">
+  <a href = "index.html">
+```{r standards_top}
+knitr::include_graphics('images/index_standards_top.PNG')
+```
+</a>
+</div>
+</div>
+<div class="container_map">
+```{r workflows}
+knitr::include_graphics('images/index_workflows.PNG')
+```
+<div class="img-top">
+  <a href = "index.html">
+```{r workflows_top}
+knitr::include_graphics('images/index_workflows_top.PNG')
+```
+</a>
+</div>
+</div>
+</div>
 
-This website describes the integration of GCIMS tools focusing on standardized and efficient data management, seamlessly interoperability, feedbacks between models and community access to curated large ensemble scenario inputs and outputs.
+<div class="container_map_outer">
+<div class="container_map">
+```{r feedbacks}
+knitr::include_graphics('images/index_feedbacks.PNG')
+```
+<div class="img-top">
+  <a href = "index.html">
+```{r feedbacks_top}
+knitr::include_graphics('images/index_feedbacks_top.PNG')
+```
+</a>
+</div>
+</div>
+<div class="container_map">
+```{r data}
+knitr::include_graphics('images/index_data.PNG')
+```
+<div class="img-top">
+  <a href = "index.html">
+```{r data_top}
+knitr::include_graphics('images/index_data_top.PNG')
+```
+</a>
+</div>
+</div>
+<div class="container_map">
+```{r visual}
+knitr::include_graphics('images/index_visual.PNG')
+```
+<div class="img-top">
+  <a href = "index.html">
+```{r visual_top}
+knitr::include_graphics('images/index_visual_top.PNG')
+```
+</a>
+</div>
+</div>
+</div>
 
-<p align="center"> <img src="images/divider.png"></p>

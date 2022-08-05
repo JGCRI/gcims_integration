@@ -1,0 +1,3 @@
+
+[<img src="images/logo_pnnl_white.png" style="padding-left:20px; height:40px;">
+]{.navbar-fixed-bottom .text-muted .bg-info}

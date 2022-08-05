@@ -3,13 +3,29 @@ navbar:
   left:
     - icon: fa-home
       href: index.html
-    - text: "Integration"
-      icon: fas fa-book
-      href: integration.html
+    - text: "Software"
+      icon: fa-map
+      href: software.html
+    - text: "Standards"
+      icon: fa-book
+      href: standards.html
+    - text: "Workflows"
+      icon: fa-project-diagram
+      href: workflows.html
+    - text: "Feedbacks"
+      icon: fa-exchange
+      href: feedbacks.html
+    - text: "Data"
+      icon: fa-database
+      href: database.html
+    - text: "Visual"
+      icon: fa-chart-bar
+      href: visual.html
+  right:
     - text: "Disclaimer"
       href: disclaimer.html
     - icon: fab fa-github
-      href: https://github.com/JGCRI/integration
+      href: https://github.com/JGCRI/gcims_integration
 
 
 output:
