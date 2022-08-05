@@ -1,0 +1,73 @@
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #ffffff;
+    background-color: black;
+    border-color: #dddddd;
+}
+
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: white;
+    background-color: black;
+}
+
+.nav-tabs>li>a {
+    color: white;
+    background-color: #808080;
+}
+
+.nav-tabs>li>a:hover {
+    color: white;
+    background-color: #adadad;
+}
+
+.container_map_outer {
+  text-align:center;
+  width:100%;
+}
+
+.container_map {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  padding: 20px;
+}
+
+.container_map .img-top{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container_map:hover .img-top{
+  display: inline-block;
+  opacity: 0.9;
+}
+
+.navbar-fixed-bottom {
+    bottom: 0;
+    margin-bottom: 0;
+    border-width: 1px 0 0;
+}
+
+fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.bg-info {
+    color: #ffffff;
+    background-color: black;
+    border-color: #dddddd;
+}
+
+.text-muted {
+    padding: 5px;
+    text-align:center;
+    color: yellow;
+}
+
+
