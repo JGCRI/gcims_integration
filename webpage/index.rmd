@@ -87,7 +87,7 @@ knitr::include_graphics('images/index_data_top.PNG')
 knitr::include_graphics('images/index_visual.PNG')
 ```
 <div class="img-top">
-  <a href = "index.html">
+  <a href = "visual.html">
 ```{r visual_top}
 knitr::include_graphics('images/index_visual_top.PNG')
 ```
