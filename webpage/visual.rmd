@@ -1,0 +1,66 @@
+---
+pagetitle: visual
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    #toc_depth: 3
+    #number_sections: false
+    theme: cosmo
+    #inverse: true
+---
+
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(results = "hide", echo = FALSE, out.width = "75%", fig.align='center', message = F, warning = F, error = F, eval = T)
+
+library(kableExtra)
+library(dplyr)
+library(gcamextractor)
+library(rchart)
+```
+
+```{r child = 'header.rmd'}
+```
+
+
+# Dashboard Comparisons
+
+Regular text.
+
+**Markdown bold**
+
+<b> HTML bold </b>
+
+<br>
+```{r key-links-table, results = 'show', eval = TRUE, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}
+
+dt_url <- c("https://mega.nz/file/hNAyBACY#JrBcDtV4OKZItR7DY77n1nrp6b9hz_vjyXYA0TU5Hwc")
+
+data.frame(
+  File = c("gcamv5p3_seasia")) %>% 
+  dplyr::mutate(Location = cell_spec(rep("Link",length(dt_url)),"html",link=dt_url)) %>%
+  kable("html", escape = FALSE) %>%
+  kable_styling(bootstrap_options = c("bordered","striped", "hover", "condensed", "responsive")) %>%
+  row_spec(0, background = "#2A2A2A", color = "white")
+```
+<i>Note: Add your notes here.</i>
+<br>
+
+
+
+# Section 2
+
+
+```{r scenarios-links-table, results = 'show', eval = TRUE, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}
+
+iris
+
+```
+
+
+
+
+
+
