@@ -12,46 +12,92 @@ output:
 ---
 
 
+# <b>Dashboard Technology Comparison</b>
+
+The Foresight project features an interactive dashboard for data analytics and visualization. This dashboard must be able to query large datasets quickly and flexibly, to showcase results interactively, and to output data based on user needs. Our first task was to survey the literature for state-of-the-art technologies for hosting this dashboard.  In this section, we compare their unique capabilities for our needs. 
+
+### <b>Rshiny</b>
+Rshiny is a leading open-source framework for dashboard development. This software offers advanced visualization tools and graphics tools and accommodates large data storage needs through either local, DropBox (remote), Amazon S3 bucket (remote), SQLite (local) servers and more.
+
+### <b>Python Dash / Plotly</b>
+Dash is a framework for building data visualization interfaces. This software offers advanced visualization and plotting tools and is interoperable with other programming languages such as R and Julia. Additionally, it is capable of accommodating large storage needs through Amazon S3 buckets server. Dash doesn’t include all the features in its open-source version (such as job queues). However, the software is mature and has a large community and network for technical support.
+
+### Streamlit
+Streamlit has similar libraries to Python Dash and is also scripted in Python. Compared to Dash, it is fully open source and includes the full set of libraries. The program is more focused on simplistic representation of data and offers limited tools for visual analytics. However, it is fully open-source tool that includes all of the python libraries. This program offers the capability of rapid development due to its simplistic design. It is less mature than Dash and therefore has a more limited support network. 
+
+### Voila
+Voila is a simple dashboard tool that allows Jupyter notebooks to be converted into basic dashboards and then published as a web application. It can accommodate large data storage needs through connection to remote cloud computing services. However, it is an inflexible solution, as it operates solely with Jupyter notebooks. 
+
+### Tableau Public
+Tableau Public is a free software that features strong graphics and visualization tools. This software is intuitive and easy to use, featuring a drag and drop feature that allows users without coding experience to use the tool. It does, however, have limited data source connection (only can connect to Excel, google sheets, text files and web data connectors) with no database connection access.
+
+
+In this table, we survey the available literature to compare the respective capabilities of each of the programs. 
+
+### Comparison Table
+
 ```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
 knitr::opts_chunk$set(results = "hide", echo = FALSE, out.width = "75%", fig.align='center', message = F, warning = F, error = F, eval = T)
 
 library(kableExtra)
 library(dplyr)
 library(gcamextractor)
-library(rchart)
+library(condformat)
+#library(rchart)
 ```
 
 ```{r child = 'header.rmd'}
 ```
 
 
-# Dashboard Comparisons
 
-Regular text.
-
-**Markdown bold**
-
-<b> HTML bold </b>
-
-<br>
 ```{r key-links-table, results = 'show', eval = TRUE, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}
 
-dt_url <- c("https://mega.nz/file/hNAyBACY#JrBcDtV4OKZItR7DY77n1nrp6b9hz_vjyXYA0TU5Hwc")
+url1 <- c('https://shiny.rstudio.com/articles/persistent-data-storage.html')
+url2 <- c('https://mastering-shiny.org/scaling-security.html')
+url3 <- c('https://rinterface.github.io/shinyMobile/')
+url4 <- c('https://shiny.rstudio.com/articles/usage-metrics.html')
+url5 <- c('https://shiny.rstudio.com/articles/scaling-and-tuning.html')
+url6 <- c('https://shiny.rstudio.com/articles/caching.html')
+url7 <- c('https://shiny.rstudio.com/articles/bookmarking-state.html')
+url8 <- c('https://shiny.rstudio.com/articles/shinytest.html')
+url9 <- c('https://www.cdata.com/kb/tech/amazons3-python-dash.rst')
+url10 <- c('https://dash.plotly.com/authentication')
+url11 <- c("https://www.datarevenue.com/en-blog/data-dashboarding-streamlit-vs-dash-vs-shiny-vs-voila#:~:text=Dash%20and%20Shiny%20are%20both,version%2C%20and%20it's%20more%20flexible.")
+url12 <- c('https://appsilon.com/dash-vs-shiny/#:~:text=Winner%3A%20R%20Shiny.&text=However%2C%20for%20more%20advanced%20applications,of%2Duse%20throughout%20the%20article.')
 
-data.frame(
-  File = c("gcamv5p3_seasia")) %>% 
-  dplyr::mutate(Location = cell_spec(rep("Link",length(dt_url)),"html",link=dt_url)) %>%
-  kable("html", escape = FALSE) %>%
-  kable_styling(bootstrap_options = c("bordered","striped", "hover", "condensed", "responsive")) %>%
-  row_spec(0, background = "#2A2A2A", color = "white")
+
+
+# Bring in the data
+dashboard_compare <- as.data.frame(read.csv('data/visual/dashboard_compare.csv')) %>% 
+  rename('Tableau Public' = 'Tableau_Public') %>% 
+  rename('Dash Plotly' = 'Dash_Plotly')
+  
+  kableExtra::kbl(dashboard_compare, escape = FALSE) %>% 
+    kable_paper(full_width = F) %>% 
+    column_spec(2, background=ifelse(dashboard_compare$Rshiny == 'yes','lightgreen', 
+                                ifelse(dashboard_compare$Rshiny == 'partially','orange','LightCoral'))) %>% 
+    column_spec(3, background=ifelse(dashboard_compare$'Dash Plotly' == 'yes','lightgreen',
+                                ifelse(dashboard_compare$'Dash Plotly' == 'partially','orange','LightCoral'))) %>% 
+    column_spec(4, background=ifelse(dashboard_compare$Voila == 'yes','lightgreen', 
+                                ifelse(dashboard_compare$Voila == 'partially','orange','LightCoral'))) %>% 
+    column_spec(5, background=ifelse(dashboard_compare$Streamlit == 'yes','lightgreen', 
+                                ifelse(dashboard_compare$Streamlit == 'partially','orange','LightCoral'))) %>% 
+    column_spec(6, background=ifelse(dashboard_compare$'Tableau Public' == 'yes','lightgreen', 
+                                ifelse(dashboard_compare$'Tableau Public' == 'partially','orange','LightCoral'))) %>% 
+    kable_styling(bootstrap_options = c("bordered","striped","hover","condensed", "responsive")) %>% 
+    row_spec(0, background = "#2A2A2A", color = "white") %>% 
+    kable_styling(full_width = F)
+
+
 ```
-<i>Note: Add your notes here.</i>
+<i>Note: Technology comparison for the dashboard.</i>
 <br>
 
 
+# Pilot Dashboard Development
 
-# Section 2
-
+Rshiny and Dash were selected as the technologies to begin building the pilot dashboard. These were chosen based off of the combination of factors described in the previous section. 
 
 ```{r scenarios-links-table, results = 'show', eval = TRUE, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}
 

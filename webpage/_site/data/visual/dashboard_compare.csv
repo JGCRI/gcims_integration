@@ -1,0 +1,17 @@
+Feature,Rshiny,Dash_Plotly,Voila,Streamlit,Tableau_Public
+User experience and ease of use,yes,yes,yes,yes,yes
+Simplicity and ease of development,partially,partially,yes,yes,yes
+Adaptability and Flexibility,partially,partially,no,no,no
+Popularity,yes,partially,no,yes,partially
+Open Source,yes,partially,yes,yes,no
+Interoperable,yes,yes,no,no,no
+Persistent data storage limits,yes,yes,yes,yes,no
+Security,partially,yes,yes,yes,no
+Community and company support,yes,yes,partially,partially,yes
+Mobile application capabilities,yes,yes,yes,yes,yes
+Usage monitoring and analytics,yes,partially,no,no,no
+Performance,yes,partially,yes,yes,no
+Tools for scaling and tuning performance,yes,partially,partially,partially,no
+User state sharability and saving,yes,yes,yes,yes,no
+Testing framework,yes,yes,partially,no,no
+Style,yes,yes,no,partially,yes
