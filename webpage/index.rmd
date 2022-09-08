@@ -36,7 +36,7 @@ knitr::include_graphics('images/index_software_top.PNG')
 knitr::include_graphics('images/index_standards.PNG')
 ```
 <div class="img-top">
-  <a href = "index.html">
+  <a href = "standards.html">
 ```{r standards_top}
 knitr::include_graphics('images/index_standards_top.PNG')
 ```
