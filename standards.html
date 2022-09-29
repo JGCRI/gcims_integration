@@ -394,24 +394,48 @@ div.tocify {
 </div>
 
 
+<div id="data-formats" class="section level1">
+<h1>Data Formats</h1>
+<div id="compare-table-metricsdiagnostics" class="section level2">
+<h2>Compare (TABLE Metrics/Diagnostics)</h2>
+<ul>
+<li>data type (spatial, raster, tabular, temporal)</li>
+<li>format (ncdf, xarrary, csv)</li>
+<li>compression size (zip)</li>
+<li>compression speed</li>
+<li>decompression speed</li>
+<li>access (querying and subsetting)</li>
+<li>read speed</li>
+<li>write speed</li>
+<li>language support (python, R)</li>
+<li>Recommended Models</li>
+<li>Metadata support — Python models (Xanthos, Demeter, Tethys) — R
+Models (Helios, Osiris, rmap) — Interactive Dashboards (Argus,
+Foresight, HectorUI)</li>
+</ul>
+</div>
+<div id="testing-and-test-result-figures" class="section level2">
+<h2>Testing and test result figures</h2>
+</div>
+</div>
 <div id="dashboard-technology-comparison" class="section level1">
-<h1><b>Dashboard Technology Comparison</b></h1>
+<h1>Dashboard Technology Comparison</h1>
 <p>The Foresight project features an interactive dashboard for data
 analytics and visualization. This dashboard must be able to query large
 datasets quickly and flexibly, to showcase results interactively, and to
 output data based on user needs. Our first task was to survey the
 literature for state-of-the-art technologies for hosting this dashboard.
 In this section, we compare their unique capabilities for our needs.</p>
-<div id="rshiny" class="section level3">
-<h3><b>Rshiny</b></h3>
+<div id="rshiny" class="section level2">
+<h2>Rshiny</h2>
 <p>Rshiny is a leading open-source framework for dashboard development.
 This software offers advanced visualization tools and graphics tools and
 accommodates large data storage needs through either local, DropBox
 (remote), Amazon S3 bucket (remote), SQLite (local) servers and
 more.</p>
 </div>
-<div id="python-dash-plotly" class="section level3">
-<h3><b>Python Dash / Plotly</b></h3>
+<div id="python-dash-plotly" class="section level2">
+<h2>Python Dash / Plotly</h2>
 <p>Dash is a framework for building data visualization interfaces. This
 software offers advanced visualization and plotting tools and is
 interoperable with other programming languages such as R and Julia.
@@ -420,8 +444,8 @@ Amazon S3 buckets server. Dash doesn’t include all the features in its
 open-source version (such as job queues). However, the software is
 mature and has a large community and network for technical support.</p>
 </div>
-<div id="streamlit" class="section level3">
-<h3>Streamlit</h3>
+<div id="streamlit" class="section level2">
+<h2>Streamlit</h2>
 <p>Streamlit has similar libraries to Python Dash and is also scripted
 in Python. Compared to Dash, it is fully open source and includes the
 full set of libraries. The program is more focused on simplistic
@@ -431,16 +455,16 @@ libraries. This program offers the capability of rapid development due
 to its simplistic design. It is less mature than Dash and therefore has
 a more limited support network.</p>
 </div>
-<div id="voila" class="section level3">
-<h3>Voila</h3>
+<div id="voila" class="section level2">
+<h2>Voila</h2>
 <p>Voila is a simple dashboard tool that allows Jupyter notebooks to be
 converted into basic dashboards and then published as a web application.
 It can accommodate large data storage needs through connection to remote
 cloud computing services. However, it is an inflexible solution, as it
 operates solely with Jupyter notebooks.</p>
 </div>
-<div id="tableau-public" class="section level3">
-<h3>Tableau Public</h3>
+<div id="tableau-public" class="section level2">
+<h2>Tableau Public</h2>
 <p>Tableau Public is a free software that features strong graphics and
 visualization tools. This software is intuitive and easy to use,
 featuring a drag and drop feature that allows users without coding
@@ -450,8 +474,8 @@ data connectors) with no database connection access.</p>
 <p>In this table, we survey the available literature to compare the
 respective capabilities of each of the programs.</p>
 </div>
-<div id="comparison-table" class="section level3">
-<h3>Comparison Table</h3>
+<div id="comparison-table" class="section level2">
+<h2>Comparison Table</h2>
 <!-- Allow href to tabsets -->
 <script type="text/javascript">
 window.onload = function() {
