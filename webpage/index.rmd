@@ -63,7 +63,7 @@ knitr::include_graphics('images/index_workflows_top.PNG')
 knitr::include_graphics('images/index_feedbacks.PNG')
 ```
 <div class="img-top">
-  <a href = "index.html">
+  <a href = "feedbacks.html">
 ```{r feedbacks_top}
 knitr::include_graphics('images/index_feedbacks_top.PNG')
 ```
