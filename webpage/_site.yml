@@ -11,13 +11,13 @@ navbar:
       href: standards.html
     - text: "Workflows"
       icon: fa-project-diagram
-      href: workflows.html
+      href: index.html
     - text: "Feedbacks"
       icon: fa-exchange
       href: feedbacks.html
     - text: "Data"
       icon: fa-database
-      href: database.html
+      href: index.html
     - text: "Visual"
       icon: fa-chart-bar
       href: visual.html

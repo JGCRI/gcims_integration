@@ -1,0 +1,33 @@
+---
+pagetitle: software
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    #toc_depth: 3
+    #number_sections: false
+    theme: cosmo
+    #inverse: true
+---
+
+```{r child = 'header.rmd'}
+```
+
+<br>
+
+<!-------------------------->
+<!-------------------------->
+# Static Software Map
+<!-------------------------->
+<!-------------------------->
+<p align="center"> <img src="images/divider.png"></p>
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(results = "hide", echo = FALSE, out.width = "75%", fig.align='center', message = F, warning = F, error = F, eval = T)
+#library(rchart)
+```
+
+<div class="image_gray">
+<img src="images/gcims_integration.jpg">
+</div>

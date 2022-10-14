@@ -70,4 +70,8 @@ fixed-bottom {
     color: yellow;
 }
 
+.image_gray:hover {
+  opacity: 0.3;
+  cursor: pointer;
+}
 

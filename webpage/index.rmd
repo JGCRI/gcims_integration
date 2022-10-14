@@ -24,7 +24,7 @@ GCIMS Integration promotes transparent, robust and reproducible workflows by mai
 knitr::include_graphics('images/index_software.PNG')
 ```
 <div class="img-top">
-  <a href = "index.html">
+  <a href = "software.html">
 ```{r software_top}
 knitr::include_graphics('images/index_software_top.PNG')
 ```

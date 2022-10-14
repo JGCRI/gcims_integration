@@ -11,8 +11,17 @@ output:
     #inverse: true
 ---
 
+```{r child = 'header.rmd'}
+```
 
+<br>
+
+<!-------------------------->
+<!-------------------------->
 # Workflow
+<!-------------------------->
+<!-------------------------->
+<p align="center"> <img src="images/divider.png"></p>
 
 The Foresight project features an interactive dashboard for data analytics and visualization. This dashboard must be able to query large datasets quickly and flexibly, to showcase results interactively, and to output data based on user needs. Our first task was to survey the literature for state-of-the-art technologies for hosting this dashboard.  In this section, we compare their unique capabilities for our needs. 
 

@@ -11,7 +11,18 @@ output:
     #inverse: true
 ---
 
+
+```{r child = 'header.rmd'}
+```
+
+<br>
+
+<!-------------------------->
+<!-------------------------->
 # Data Formats
+<!-------------------------->
+<!-------------------------->
+<p align="center"> <img src="images/divider.png"></p>
 
 ## Compare (TABLE Metrics/Diagnostics)
 - data type (spatial, raster, tabular, temporal)
@@ -31,10 +42,12 @@ output:
 
 ## Testing and test result figures
 
-
-
-
+<!-------------------------->
+<!-------------------------->
 # Dashboard Technology Comparison
+<!-------------------------->
+<!-------------------------->
+<p align="center"> <img src="images/divider.png"></p>
 
 The Foresight project features an interactive dashboard for data analytics and visualization. This dashboard must be able to query large datasets quickly and flexibly, to showcase results interactively, and to output data based on user needs. Our first task was to survey the literature for state-of-the-art technologies for hosting this dashboard.  In this section, we compare their unique capabilities for our needs. 
 
@@ -67,10 +80,6 @@ library(gcamextractor)
 library(condformat)
 #library(rchart)
 ```
-
-```{r child = 'header.rmd'}
-```
-
 
 
 ```{r key-links-table, results = 'show', eval = TRUE, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}

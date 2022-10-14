@@ -265,7 +265,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="workflows.html">
+  <a href="index.html">
     <span class="fa fa-project-diagram"></span>
      
     Workflows
@@ -279,7 +279,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="database.html">
+  <a href="index.html">
     <span class="fa fa-database"></span>
      
     Data
@@ -317,26 +317,6 @@ $(document).ready(function () {
 
 
 <!-- Allow href to tabsets -->
-<pre class="js"><code>window.onload = function() {
-  document.querySelector(&#39;a[href=&quot;&#39; + window.location.href.match(&quot;#.*$&quot;) + &#39;&quot;]&#39;).click();
-}
-
-function goToTab() {
-  var hash = String(window.location.href.match(&quot;#.*$&quot;));
-  var target = document.querySelector(&quot;a[role = &#39;tab&#39;][href=&#39;&quot; + hash + &quot;&#39;]&quot;);
-  if (target !== null) {
-    var greatgrandparent = target.parentElement.parentElement.parentElement;
-    if (greatgrandparent.getAttribute(&quot;role&quot;) == &quot;tabpanel&quot;) {
-      document.querySelector(&quot;a[role = &#39;tab&#39;][href=&#39;#&quot; + greatgrandparent.getAttribute(&quot;id&quot;) + &quot;&#39;]&quot;).click();
-    }
-    target.click();
-    target.scrollIntoView();
-  }
-}
-window.onload = function() {
-  setTimeout(goToTab, 100);
-}
-window.onhashchange = goToTab;</code></pre>
 <script type="text/javascript">
 window.onload = function() {
   document.querySelector('a[href="' + window.location.href.match("#.*$") + '"]').click();
@@ -373,6 +353,24 @@ td, th {
   padding: 8px;
 }
 </style>
+<!-- Allow href to tabsets -->
+<style type="text/css">
+script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+</style>
+<script type="text/javascript">
+ $(document).ready(function() {
+    $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
+    // onClick function for all plots (img's)
+    $('img:not(.zoomImg)').click(function() {
+      $('.zoomImg').attr('src', $(this).attr('src')).css({width: '100%'});
+      $('.zoomDiv').css({opacity: '1', width: 'auto', border: '1px solid white', borderRadius: '5px', position: 'fixed', top: '50%', left: '50%', marginRight: '-50%', transform: 'translate(-50%, -50%)', boxShadow: '0px 0px 50px #888888', zIndex: '50', overflow: 'auto', maxHeight: '100%'});
+    });
+    // onClick function for zoomImg
+    $('img.zoomImg').click(function() {
+      $('.zoomDiv').css({opacity: '0', width: '0%'}); 
+    });
+  });
+</script>
 
 
 
