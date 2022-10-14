@@ -343,7 +343,7 @@ div.tocify {
   </a>
 </li>
 <li>
-  <a href="workflows.html">
+  <a href="index.html">
     <span class="fa fa-project-diagram"></span>
      
     Workflows
@@ -357,7 +357,7 @@ div.tocify {
   </a>
 </li>
 <li>
-  <a href="database.html">
+  <a href="index.html">
     <span class="fa fa-database"></span>
      
     Data
@@ -394,8 +394,71 @@ div.tocify {
 </div>
 
 
+<!-- Allow href to tabsets -->
+<script type="text/javascript">
+window.onload = function() {
+  document.querySelector('a[href="' + window.location.href.match("#.*$") + '"]').click();
+}
+
+function goToTab() {
+  var hash = String(window.location.href.match("#.*$"));
+  var target = document.querySelector("a[role = 'tab'][href='" + hash + "']");
+  if (target !== null) {
+    var greatgrandparent = target.parentElement.parentElement.parentElement;
+    if (greatgrandparent.getAttribute("role") == "tabpanel") {
+      document.querySelector("a[role = 'tab'][href='#" + greatgrandparent.getAttribute("id") + "']").click();
+    }
+    target.click();
+    target.scrollIntoView();
+  }
+}
+window.onload = function() {
+  setTimeout(goToTab, 100);
+}
+window.onhashchange = goToTab;
+</script>
+<!-- Set table styles -->
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+<!-- Allow href to tabsets -->
+<style type="text/css">
+script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+</style>
+<script type="text/javascript">
+ $(document).ready(function() {
+    $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
+    // onClick function for all plots (img's)
+    $('img:not(.zoomImg)').click(function() {
+      $('.zoomImg').attr('src', $(this).attr('src')).css({width: '100%'});
+      $('.zoomDiv').css({opacity: '1', width: 'auto', border: '1px solid white', borderRadius: '5px', position: 'fixed', top: '50%', left: '50%', marginRight: '-50%', transform: 'translate(-50%, -50%)', boxShadow: '0px 0px 50px #888888', zIndex: '50', overflow: 'auto', maxHeight: '100%'});
+    });
+    // onClick function for zoomImg
+    $('img.zoomImg').click(function() {
+      $('.zoomDiv').css({opacity: '0', width: '0%'}); 
+    });
+  });
+</script>
+<p><br></p>
+<!-------------------------->
+<!-------------------------->
 <div id="data-formats" class="section level1">
 <h1>Data Formats</h1>
+<!-------------------------->
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
 <div id="compare-table-metricsdiagnostics" class="section level2">
 <h2>Compare (TABLE Metrics/Diagnostics)</h2>
 <ul>
@@ -416,10 +479,17 @@ Foresight, HectorUI)</li>
 </div>
 <div id="testing-and-test-result-figures" class="section level2">
 <h2>Testing and test result figures</h2>
+<!-------------------------->
+<!-------------------------->
 </div>
 </div>
 <div id="dashboard-technology-comparison" class="section level1">
 <h1>Dashboard Technology Comparison</h1>
+<!-------------------------->
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
 <p>The Foresight project features an interactive dashboard for data
 analytics and visualization. This dashboard must be able to query large
 datasets quickly and flexibly, to showcase results interactively, and to
@@ -476,43 +546,6 @@ respective capabilities of each of the programs.</p>
 </div>
 <div id="comparison-table" class="section level2">
 <h2>Comparison Table</h2>
-<!-- Allow href to tabsets -->
-<script type="text/javascript">
-window.onload = function() {
-  document.querySelector('a[href="' + window.location.href.match("#.*$") + '"]').click();
-}
-
-function goToTab() {
-  var hash = String(window.location.href.match("#.*$"));
-  var target = document.querySelector("a[role = 'tab'][href='" + hash + "']");
-  if (target !== null) {
-    var greatgrandparent = target.parentElement.parentElement.parentElement;
-    if (greatgrandparent.getAttribute("role") == "tabpanel") {
-      document.querySelector("a[role = 'tab'][href='#" + greatgrandparent.getAttribute("id") + "']").click();
-    }
-    target.click();
-    target.scrollIntoView();
-  }
-}
-window.onload = function() {
-  setTimeout(goToTab, 100);
-}
-window.onhashchange = goToTab;
-</script>
-<!-- Set table styles -->
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-</style>
 <table class=" lightable-paper table table-bordered table-striped table-hover table-condensed table-responsive table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
