@@ -1,5 +1,5 @@
 ---
-pagetitle: visual
+pagetitle: workflows
 output: 
   html_document:
     toc: true
@@ -11,6 +11,7 @@ output:
     #inverse: true
 ---
 
+
 ```{r child = 'header.rmd'}
 ```
 
@@ -18,14 +19,9 @@ output:
 
 <!-------------------------->
 <!-------------------------->
-# Visual Analytics
+# Workflows
 <!-------------------------->
 <!-------------------------->
 <p align="center"> <img src="images/divider.png"></p>
 
 In-Progress...
-
-
-
-
-

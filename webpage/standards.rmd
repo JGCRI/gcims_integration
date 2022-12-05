@@ -19,32 +19,7 @@ output:
 
 <!-------------------------->
 <!-------------------------->
-# Data Formats
-<!-------------------------->
-<!-------------------------->
-<p align="center"> <img src="images/divider.png"></p>
-
-## Compare (TABLE Metrics/Diagnostics)
-- data type (spatial, raster, tabular, temporal)
-- format (ncdf, xarrary, csv)
-- compression size (zip)
-- compression speed
-- decompression speed
-- access (querying and subsetting)
-- read speed
-- write speed
-- language support (python, R)
-- Recommended Models
-- Metadata support
---- Python models (Xanthos, Demeter, Tethys)
---- R Models (Helios, Osiris, rmap)
---- Interactive Dashboards (Argus, Foresight, HectorUI)
-
-## Testing and test result figures
-
-<!-------------------------->
-<!-------------------------->
-# Dashboard Technology Comparison
+# Dashboards
 <!-------------------------->
 <!-------------------------->
 <p align="center"> <img src="images/divider.png"></p>

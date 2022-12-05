@@ -48,7 +48,7 @@ knitr::include_graphics('images/index_standards_top.PNG')
 knitr::include_graphics('images/index_workflows.PNG')
 ```
 <div class="img-top">
-  <a href = "index.html">
+  <a href = "workflows.html">
 ```{r workflows_top}
 knitr::include_graphics('images/index_workflows_top.PNG')
 ```
@@ -75,7 +75,7 @@ knitr::include_graphics('images/index_feedbacks_top.PNG')
 knitr::include_graphics('images/index_data.PNG')
 ```
 <div class="img-top">
-  <a href = "index.html">
+  <a href = "data.html">
 ```{r data_top}
 knitr::include_graphics('images/index_data_top.PNG')
 ```
