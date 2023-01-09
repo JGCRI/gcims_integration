@@ -1,0 +1,216 @@
+---
+pagetitle: health
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    #toc_depth: 3
+    #number_sections: false
+    theme: cosmo
+    #inverse: true
+---
+
+```{r child = 'header.rmd'}
+```
+
+<br>
+
+<!-------------------------->
+<!-------------------------->
+# Software Health
+<!-------------------------->
+<!-------------------------->
+<p align="center"> <img src="images/divider.png"></p>
+
+<br>
+
+```{r, results = 'show', eval=TRUE, echo=FALSE, warning=FALSE, error = FALSE, message = FALSE}
+library(kableExtra); library(tibble)
+tibble::tribble(
+  ~Software, ~Purpose, ~Build, ~Tests, ~Coverage, ~Documentation,
+   # osiris
+  "[osiris](https://github.com/JGCRI/osiris)",
+  "impacts ag yield",
+  "[![build](https://github.com/JGCRI/osiris/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/osiris/actions/workflows/build.yml)",
+  "[![test_coverage](https://github.com/JGCRI/osiris/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/osiris/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/osiris/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/osiris)",
+  "[![docs](https://github.com/JGCRI/osiris/actions/workflows/docs.yaml/badge.svg)](https://github.com/JGCRI/osiris/actions/workflows/docs.yaml)",
+  # helios
+    "[helios](https://github.com/JGCRI/helios)",
+  "impacts heating//cooling",
+  "[![build](https://github.com/JGCRI/helios/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/helios/actions/workflows/build.yml)",
+    "[![test_coverage](https://github.com/JGCRI/helios/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/helios/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/helios/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/helios)",
+  "[![docs](https://github.com/JGCRI/helios/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/JGCRI/helios/actions/workflows/pkgdown.yaml)",
+  # xanthos
+  "[xanthos](https://github.com/JGCRI/xanthos)",
+  "impacts runoff",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # ambrosia
+  "[ambrosia](https://github.com/JGCRI/ambrosia)",
+  "food demand",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # pridr
+  "[pridr](https://github.com/JGCRI/pridr)",
+  "income distribution",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # moirai
+  "[moirai](https://github.com/JGCRI/moirai)",
+  "land system",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # gcamdata
+  "[gcamdata](https://github.com/JGCRI/gcamdata)",
+  "GCAM data",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # GCAM
+  "[GCAM](https://github.com/JGCRI/gcam-core)",
+  "GCAM model",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+    # gcamextractor
+    "[gcamextractor](https://github.com/JGCRI/gcamextractor)",
+  "impacts heating//cooling",
+  "[![build](https://github.com/JGCRI/gcamextractor/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/gcamextractor/actions/workflows/build.yml)",
+    "[![test_coverage](https://github.com/JGCRI/gcamextractor/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/gcamextractor/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/gcamextractor/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/gcamextractor)",
+  "[![docs](https://github.com/JGCRI/gcamextractor/actions/workflows/docs.yaml/badge.svg)](https://github.com/JGCRI/gcamextractor/actions/workflows/docs.yaml)",
+  # Tethys
+  "[tethys](https://github.com/JGCRI/tethys)",
+  "downscaling water",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # Demeter
+  "[demeter](https://github.com/JGCRI/demeter)",
+  "downscaling landuse",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # Stiches
+  "[stitches](https://github.com/JGCRI/stitches)",
+  "downscaling climate data",
+  "[![build](https://github.com/JGCRI/stitches/actions/workflows/workflow.yml/badge.svg)](https://github.com/JGCRI/stitches/actions/workflows/workflow.yml)",
+    "missing",
+    "[![codecov](https://codecov.io/gh/JGCRI/stitches/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/stitches)",
+  "missing",
+    # Hector
+  "[hector](https://github.com/JGCRI/hector)",
+  "temperature, emissions",
+  "[![build](https://github.com/JGCRI/hector/actions/workflows/rcmd.yml/badge.svg)](https://github.com/JGCRI/hector/actions/workflows/rcmd.yml)",
+  "missing",
+  "missing",
+  "missing",
+     # Plutus
+  "[plutus](https://github.com/JGCRI/plutus)",
+  "electiricty investments",
+  "[![build](https://github.com/JGCRI/plutus/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/plutus/actions/workflows/build.yml)",
+  "[![test_coverage](https://github.com/JGCRI/plutus/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/plutus/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/plutus/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/plutus)",
+  "[![docs](https://github.com/JGCRI/plutus/actions/workflows/docs.yaml/badge.svg)](https://github.com/JGCRI/plutus/actions/workflows/docs.yaml)",
+   # rmap
+  "[rmap](https://github.com/JGCRI/rmap)",
+  "visualization maps",
+  "[![build](https://github.com/JGCRI/rmap/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/rmap/actions/workflows/build.yml)",
+    "[![test_coverage](https://github.com/JGCRI/rmap/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/rmap/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/rmap/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/rmap)",
+  "[![docs](https://github.com/JGCRI/rmap/actions/workflows/docs.yaml/badge.svg)](https://github.com/JGCRI/rmap/actions/workflows/docs.yaml)",
+   # rchart
+  "[rchart](https://github.com/JGCRI/rchart)",
+  "visualization charts",
+  "[![build](https://github.com/JGCRI/rchart/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/rchart/actions/workflows/build.yml)",
+    "[![test_coverage](https://github.com/JGCRI/rchart/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/rchart/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/rchart/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/rchart)",
+  "[![docs](https://github.com/JGCRI/rchart/actions/workflows/docs.yaml/badge.svg)](https://github.com/JGCRI/rchart/actions/workflows/docs.yaml)",
+   # jgcricolors
+  "[jgcricolors](https://github.com/JGCRI/jgcricolors)",
+  "visualization JGCRI standard colors",
+  "[![build](https://github.com/JGCRI/jgcricolors/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/jgcricolors/actions/workflows/build.yml)",
+    "[![test_coverage](https://github.com/JGCRI/jgcricolors/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/jgcricolors/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/jgcricolors/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/jgcricolors)",
+  "[![docs](https://github.com/JGCRI/jgcricolors/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/JGCRI/jgcricolors/actions/workflows/pkgdown.yaml)",
+  # hectorui
+  "[hectorui](https://github.com/JGCRI/hectorui)",
+  "visualization Hector dashboard",
+  "[![build](https://github.com/JGCRI/hectorui/actions/workflows/rcmd.yml/badge.svg)](https://github.com/JGCRI/hectorui/actions/workflows/rcmd.yml)",
+    "[![test_coverage](https://github.com/JGCRI/hectorui/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/hectorui/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/hectorui/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/hectorui)",
+  "[![docs](https://github.com/JGCRI/hectorui/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/JGCRI/hectorui/actions/workflows/pkgdown.yml)",
+  # argus
+  "[argus](https://github.com/JGCRI/argus)",
+  "visualization GCAM dashboard",
+  "[![build](https://github.com/JGCRI/argus/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/argus/actions/workflows/build.yml)",
+    "[![test_coverage](https://github.com/JGCRI/argus/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/argus/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/argus/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/argus)",
+  "[![docs](https://github.com/JGCRI/argus/actions/workflows/docs.yaml/badge.svg)](https://github.com/JGCRI/argus/actions/workflows/docs.yaml)",
+  # rpackageutils
+  "[rpackageutils](https://github.com/JGCRI/rpackageutils)",
+  "utilities for R packages",
+  "mising",
+    "[![test_coverage](https://github.com/JGCRI/rpackageutils/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/rpackageutils/actions/workflows/test_coverage.yml)",
+  "[![codecov](https://codecov.io/gh/JGCRI/rpackageutils/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/rpackageutils)",
+  "missing",
+   # pypackageutils
+  "[pypackageutils](https://github.com/JGCRI/pypackageutils)",
+  "utilities for R packages",
+  "[![build](https://github.com/JGCRI/pypackageutils/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/pypackageutils/actions/workflows/build.yml)",
+    "missing",
+  "[![codecov](https://codecov.io/gh/JGCRI/pypackageutils/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/pypackageutils)",
+  "missing",
+        # Water Scarcity
+  "Water Scarcity",
+  "Water Scarcity",
+  "In planning",
+  "In planning",
+  "In planning",
+  "In planning",
+  # rhap
+  "rhap",
+  "Indoor Air pollution",
+  "In planning",
+  "In planning",
+  "In planning",
+  "In planning",
+  # societal impacts
+  "Societal Impacts",
+  "Jobs, equity",
+  "In planning",
+  "In planning",
+  "In planning",
+  "In planning",
+  # Rheat
+  "rheat",
+  "Deaths by extreme heat",
+  "In planning",
+  "In planning",
+  "In planning",
+  "In planning") %>% 
+  as.data.frame()%>%
+  kbl() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  row_spec(0, background = "#2A2A2A", color = "white", align="c")
+```
+
+<br>
+
+
+

@@ -32,7 +32,11 @@
 .container_index {
   position: relative;
   display: inline-block;
-  width: 25%;
+  width: 20%;
+  margin: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
 }
 
 .image_index {
@@ -67,6 +71,14 @@
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text_index_img {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
   text-align: center;
 }
 

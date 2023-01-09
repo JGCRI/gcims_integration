@@ -6,15 +6,12 @@ navbar:
     - text: "Software"
       icon: fa-map
       href: software.html
-    - text: "Standards"
-      icon: fa-book
-      href: standards.html
+    - text: "Health"
+      icon: fa-heart
+      href: health.html
     - text: "Workflows"
       icon: fa-project-diagram
       href: workflows.html
-    - text: "Feedbacks"
-      icon: fa-exchange
-      href: feedbacks.html
     - text: "Data"
       icon: fa-database
       href: data.html
