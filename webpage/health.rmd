@@ -2,7 +2,7 @@
 pagetitle: health
 output: 
   html_document:
-    toc: true
+    toc: false
     toc_float: true
     toc_collapsed: true
     #toc_depth: 3
@@ -42,9 +42,16 @@ tibble::tribble(
   "[![build](https://github.com/JGCRI/helios/actions/workflows/build.yml/badge.svg)](https://github.com/JGCRI/helios/actions/workflows/build.yml)",
     "[![test_coverage](https://github.com/JGCRI/helios/actions/workflows/test_coverage.yml/badge.svg)](https://github.com/JGCRI/helios/actions/workflows/test_coverage.yml)",
   "[![codecov](https://codecov.io/gh/JGCRI/helios/branch/main/graph/badge.svg?token=XQ913U4IYM)](https://codecov.io/gh/JGCRI/helios)",
-  "[![docs](https://github.com/JGCRI/helios/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/JGCRI/helios/actions/workflows/pkgdown.yaml)",
+  "[![docs](https://github.com/JGCRI/helios/actions/workflows/docs.yaml/badge.svg?branch=main)](https://github.com/JGCRI/helios/actions/workflows/docs.yaml)",
   # xanthos
-  "[xanthos](https://github.com/JGCRI/xanthos)",
+  "[xanthos](https://github.com/JGCRI/superwell)",
+  "Groundwater availability & costs",
+  "missing",
+  "missing",
+  "missing",
+  "missing",
+  # superwell
+  "[Superwell](https://github.com/JGCRI/xanthos)",
   "impacts runoff",
   "missing",
   "missing",
@@ -115,7 +122,7 @@ tibble::tribble(
   "missing",
     # Hector
   "[hector](https://github.com/JGCRI/hector)",
-  "temperature, emissions",
+  "concentrations, temperature, carbon cycle",
   "[![build](https://github.com/JGCRI/hector/actions/workflows/rcmd.yml/badge.svg)](https://github.com/JGCRI/hector/actions/workflows/rcmd.yml)",
   "missing",
   "missing",
