@@ -24,4 +24,6 @@ output:
 <!-------------------------->
 <p align="center"> <img src="images/divider.png"></p>
 
-In-Progress...
+<div>
+Metarepo Template details
+</div>

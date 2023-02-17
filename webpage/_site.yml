@@ -3,6 +3,9 @@ navbar:
   left:
     - icon: fa-home
       href: index.html
+    - text: "Models"
+      icon: fa-code
+      href: models.html
     - text: "Software"
       icon: fa-map
       href: software.html
