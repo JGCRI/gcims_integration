@@ -1,0 +1,235 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/******* Default ********/
+
+body, html {
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+/******* Navigation ********/
+
+.logo {
+  height:30vw;
+  max-height:80px;
+  margin: 0 0 0 20px;
+}
+
+.bartop {
+  z-index: 1000 !important;
+  height: 120px;
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.navbar {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+.nav-link {
+  padding-top: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-right-margin {
+   margin-right: 20px;
+}
+
+.nav-icon {
+  margin-right: 10px;
+}
+
+.container {
+  margin-left: 2vw !important;
+}
+
+.navbar-collapse {
+  background-color:  rgb(0, 0, 0, 0.9) !important;
+  border-radius: 10px !important;
+  padding-left: 20px;
+}
+
+@media (max-width: 992px) {
+  .d-flex {
+    flex-direction: column !important;
+  }
+  .nav-link-right-margin {
+    margin-left: 0 !important;
+  }
+}
+
+.ms-auto.d-flex.flex-column {
+  align-items: flex-start;
+}
+
+/******* Home ********/
+
+.home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./assets/img/nasa-Q1p7bh3SHj8-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.home .content {
+  position: relative;
+  z-index: 2;
+}
+
+.home .home-title {
+  font-size: calc(5vw + 5vh);
+  color: rgb(230, 230, 230);
+  padding-top: 25vh;
+  text-align: left;
+  padding-left: 80px;
+  line-height: 1.2;
+}
+
+.home .home-subtitle {
+  font-size: calc(2vw + 2vh);
+  color: rgb(230, 230, 230);
+  text-align: left;
+  padding-left: 80px;
+  padding-top: 50px;
+}
+
+.circle-container {
+  position: absolute;
+  top: 52%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle svg {
+  font-size: 50px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color:rgb(230, 230, 230);
+  border: 2px solid black;
+  margin: 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  box-shadow: 0 0 0 rgb(255, 255, 255, 0);
+  transition: all 0.5s ease-in-out;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 rgb(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 30px rgb(255, 255, 255, 0.7);
+  }
+}
+
+.icon-text {
+  position: absolute;
+  top: calc(110%);
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color:rgb(230, 230, 230);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+}
+
+.circle:hover .icon-text {
+  opacity: 1;
+}
+
+.circle:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.circle:not(:hover) {
+  opacity: 0.5;
+}
+
+.circle:hover ~ .circle:not(:hover) {
+  opacity: 0.5;
+}
+
+.circle:nth-child(1) {
+  left: 50%;
+  top: 175px;
+}
+
+.circle:nth-child(2) {
+  left: 200%;
+  top: 150px;
+}
+
+.circle:nth-child(3) {
+  left: 50%;
+  top: 125px;
+}
+
+.circle:nth-child(4) {
+  left: 200%;
+  top: 100px;
+}
+
+.circle:nth-child(5) {
+  left: 50%;
+  top: 75px;
+}
+
+.circle:nth-child(6) {
+  left: 200%;
+  top: 50px;
+}
+
+/******* Dashboard ********/
