@@ -20,6 +20,11 @@ body, html {
   padding: 0 !important;
 }
 
+.content {
+  position: relative;
+  z-index: 2;
+}
+
 
 /******* Navigation ********/
 
@@ -108,12 +113,7 @@ body, html {
   z-index: 1;
 }
 
-.home .content {
-  position: relative;
-  z-index: 2;
-}
-
-.home .home-title {
+.home-title {
   font-size: calc(5vw + 5vh);
   color: rgb(230, 230, 230);
   padding-top: 25vh;
@@ -122,7 +122,7 @@ body, html {
   line-height: 1.2;
 }
 
-.home .home-subtitle {
+.home-subtitle {
   font-size: calc(2vw + 2vh);
   color: rgb(230, 230, 230);
   text-align: left;
@@ -148,8 +148,8 @@ body, html {
 }
 
 .circle {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   background-color:rgb(230, 230, 230);
   border: 2px solid black;
@@ -169,7 +169,7 @@ body, html {
     box-shadow: 0 0 0 rgb(255, 255, 255, 0.5);
   }
   100% {
-    box-shadow: 0 0 30px rgb(255, 255, 255, 0.7);
+    box-shadow: 0 0 35px rgb(255, 255, 255, 0.8);
   }
 }
 
@@ -232,4 +232,71 @@ body, html {
   top: 50px;
 }
 
-/******* Dashboard ********/
+/******* Models ********/
+
+.models {
+  position: relative;
+  margin-top: 120px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./assets/img/rolands-varsbergs-OVOjK3MuxEg-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.models::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+.models-title {
+  font-size: calc(1.8vw + 1.8vh);
+  color: rgb(230, 230, 230);
+  text-align: center;
+  padding-top: 80px;
+  line-height: 1.2;
+}
+
+.models-subtitle {
+  font-size: calc(0.9vw + 0.9vh);
+  color: rgb(230, 230, 230);
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+}
+
+.models-panel {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  opacity: 1;
+  margin-top: 125px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.models-panel-left{
+  margin-left: 200px;
+  margin-right: 50px;
+}
+
+.models-panel-right{
+  margin-right: 200px;
+  margin-left: 50px;
+}
+
+
+.models-panel:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
