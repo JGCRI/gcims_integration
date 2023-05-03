@@ -1,9 +1,16 @@
-function Map() {
+import React from "react";
+import { Container, Row} from "react-bootstrap";
+
+function Data() {
   return (
-    <div>
-      Test
+    <div className="content">
+      <Container>
+        <Row>
+          <div className="page-title">In Progress..</div>
+        </Row>
+      </Container>
     </div>
   );
 }
 
-export default Map;
+export default Data;

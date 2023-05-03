@@ -6,3 +6,4 @@ export { default as Health } from "./Health";
 export { default as  Workflow} from "./Workflow";
 export { default as Data } from "./Data";
 export { default as Visual } from "./Visual";
+export { default as Panel } from "./Panel";
