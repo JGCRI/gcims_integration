@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navigation,
   Home,
@@ -29,8 +29,6 @@ root.render(
       <Route path="/workflow" element={<Workflow />} />     
       <Route path="/data" element={<Data />} />      
       <Route path="/visual" element={<Visual />} /> 
-      <Route path="/models" element={<Navigate to="/#/models" />} />
-      <Route path="/map" element={<Navigate to="/#/map" />} />
     </Routes>
   </Router>,
 );
