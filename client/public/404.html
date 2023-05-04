@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      const path = window.location.pathname.slice(1);
+      const path = window.location.pathname.slice('/gcims_integration/'.length);
       window.history.replaceState(null, null, `/#/${path}`);
     </script>
   </body>
