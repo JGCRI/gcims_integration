@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/foresight/static/css/main.01d7c326.css",
+    "main.js": "/foresight/static/js/main.5468dc1d.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/foresight/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/gcims_integration.jpg": "/foresight/static/media/gcims_integration.9385bad7d78a57de169b.jpg",
+    "static/media/PNNL_CENTER_FullColor.png": "/foresight/static/media/PNNL_CENTER_FullColor.45dd62954fd9c1592e21.png",
+    "static/media/PNNL_CENTER_White.png": "/foresight/static/media/PNNL_CENTER_White.e6c43a164438145a3d26.png",
+    "index.html": "/foresight/index.html",
+    "main.01d7c326.css.map": "/foresight/static/css/main.01d7c326.css.map",
+    "main.5468dc1d.js.map": "/foresight/static/js/main.5468dc1d.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/foresight/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.01d7c326.css",
+    "static/js/main.5468dc1d.js"
+  ]
+}
