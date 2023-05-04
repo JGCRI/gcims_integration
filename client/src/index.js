@@ -19,16 +19,16 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <Router>
+  <Router basename="/gcims_integration">
     <Navigation />
     <Routes>
-      <Route path="/gcims_integration/home" element={<Home />} />
-      <Route path="/gcims_integration/models" element={<Models />} />     
-      <Route path="/gcims_integration/map" element={<Map />} />      
-      <Route path="/gcims_integration/health" element={<Health />} /> 
-      <Route path="/gcims_integration/workflow" element={<Workflow />} />     
-      <Route path="/gcims_integration/data" element={<Data />} />      
-      <Route path="/gcims_integration/visual" element={<Visual />} /> 
+      <Route path="/" element={<Home />} />
+      <Route path="/models" element={<Models />} />     
+      <Route path="/map" element={<Map />} />      
+      <Route path="/health" element={<Health />} /> 
+      <Route path="/workflow" element={<Workflow />} />     
+      <Route path="/data" element={<Data />} />      
+      <Route path="/visual" element={<Visual />} /> 
     </Routes>
   </Router>,
 );
