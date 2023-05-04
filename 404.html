@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found</title>
-  </head>
-  <body>
-    <script>
-      const path = window.location.pathname.slice(1);
-      window.history.replaceState(null, null, `/${path}`);
-      window.location.replace(window.location + '/');
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <script>
+    window.location.href = "/gcims_integration/#" + window.location.pathname;
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="/gcims_integration/#">/gcims_integration/#</a></p>
+</body>
 </html>
