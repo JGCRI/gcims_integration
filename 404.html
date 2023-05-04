@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Page Not Found</title>
-  <script>
-    const path = window.location.pathname.replace(process.env.PUBLIC_URL, '').slice(1);
-    const baseUrl = '/gcims_integration';
-    window.location.replace(`${baseUrl}/#/` + path);
-  </script>
-</head>
-<body>
-  <p>Redirecting to <a href="/gcims_integration/#/data">/gcims_integration/#/data</a></p>
-</body>
+<html>
+  <head>
+    <title>Page not found</title>
+    <meta http-equiv="refresh" content="0; URL='/gcims_integration'" />
+  </head>
+  <body>
+    <h1>Page not found</h1>
+    <p>Redirecting to <a href="/gcims_integration">/gcims_integration</a></p>
+  </body>
 </html>
