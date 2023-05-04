@@ -1,6 +1,6 @@
 {
-  "short_name": "Foresight",
-  "name": "Foresight",
+  "short_name": "gcims_integration",
+  "name": "GCIMS Integration",
   "icons": [
     {
       "src": "favicon.ico",

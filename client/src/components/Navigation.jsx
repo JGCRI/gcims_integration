@@ -17,12 +17,12 @@ function Navigation() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="bartop">
       <Container fluid>
-        <Navbar.Brand href="/"><img className="logo" src={logo} alt="Logo" /></Navbar.Brand>
+        <Navbar.Brand href="/gcims_integration"><img className="logo" src={logo} alt="Logo" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto nav-left">
           <NavLink className="nav-link" to="/">
-              <div className="nav-icon"><AiFillHome /></div>Home
+              <div className="nav-icon"><AiFillHome /></div>
               </NavLink>
             <NavLink className="nav-link" to="/models">
               <div className="nav-icon"><AiFillCode /></div> Models
@@ -33,7 +33,7 @@ function Navigation() {
             <NavLink className="nav-link" to="/health">
               <div className="nav-icon"><BsFillHeartPulseFill /></div>Health
             </NavLink>
-            <NavLink className="nav-link" to="/workflows">
+            <NavLink className="nav-link" to="/workflow">
               <div className="nav-icon"><FaSitemap /></div>Workflow
             </NavLink>
             <NavLink className="nav-link" to="/data">

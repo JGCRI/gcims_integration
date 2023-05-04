@@ -19,7 +19,7 @@ function Home() {
           </Row>
           <Row>
             <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-              <hr className="home-hr" />
+            <hr className="home-hr" />
               <div className="home-subtitle">
                 GCIMS Integration promotes transparent, robust and reproducible
                 workflows by maintaining, testing and validating the various
@@ -28,7 +28,7 @@ function Home() {
               </div>
             </Col>
           </Row>
-          <hr className="home-hr" />
+          <hr className="home-hr lower-hr" />
           <Row className="panel-container panels-top">
           <Panel
             className="panel"
