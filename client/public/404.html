@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <title>Page Not Found</title>
   <script>
-    window.location.href = "/gcims_integration/#" + window.location.pathname;
+    const path = window.location.pathname.slice(1);
+    window.location.replace(`/gcims_integration/#/${path}`);
   </script>
 </head>
 <body>
