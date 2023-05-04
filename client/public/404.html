@@ -5,10 +5,11 @@
   <title>Page Not Found</title>
   <script>
     const path = window.location.pathname.slice(1);
-    window.location.replace(`/gcims_integration/#/${path}`);
+    const hash = window.location.hash;
+    window.location.replace(`/gcims_integration/${hash}#${path}`);
   </script>
 </head>
 <body>
-  <p>Redirecting to <a href="/gcims_integration/#">/gcims_integration/#</a></p>
+  <p>Redirecting to <a href="/gcims_integration/#/data">/gcims_integration/#/data</a></p>
 </body>
 </html>
