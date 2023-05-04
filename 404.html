@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Page not found</title>
-    <meta http-equiv="refresh" content="0; URL='/gcims_integration'" />
+    <script>
+      // Redirect to the requested URL with a hash (to trigger client-side routing)
+      window.location.replace("/gcims_integration/#" + window.location.pathname);
+    </script>
   </head>
   <body>
-    <h1>Page not found</h1>
-    <p>Redirecting to <a href="/gcims_integration">/gcims_integration</a></p>
+    <p>Page not found. Redirecting...</p>
   </body>
 </html>
