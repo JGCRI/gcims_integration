@@ -8,22 +8,8 @@
   <body>
     <script>
       const path = window.location.pathname.slice(1);
-      window.history.replaceState(null, null, `/#/${path}`);
-    </script>
-    <script type="module">
-      import { BrowserRouter as Router } from "react-router-dom";
-      import React from "react";
-      import ReactDOM from "react-dom";
-      import { Navigation, NotFound } from "./components";
-
-      const root = document.getElementById("root");
-
-      ReactDOM.createRoot(root).render(
-        <Router basename="/gcims_integration">
-          <Navigation />
-          <NotFound />
-        </Router>
-      );
+      window.history.replaceState(null, null, `/${path}`);
+      window.location.replace(window.location + '/');
     </script>
   </body>
 </html>
