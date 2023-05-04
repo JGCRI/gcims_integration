@@ -20,7 +20,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <Router>
-    <Navigation />
+    <Navigation basename="/gcims_integration"/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/models" element={<Models />} />     
