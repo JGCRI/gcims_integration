@@ -17,11 +17,11 @@ function Navigation() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="bartop">
       <Container fluid>
-        <Navbar.Brand href="/"><img className="logo" src={logo} alt="Logo" /></Navbar.Brand>
+        <Navbar.Brand href="/gcims_integration"><img className="logo" src={logo} alt="Logo" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto nav-left">
-          <NavLink className="nav-link" to="/">
+          <NavLink className="nav-link" to="/gcims_integration">
               <div className="nav-icon"><AiFillHome /></div>Home
               </NavLink>
             <NavLink className="nav-link" to="/models">

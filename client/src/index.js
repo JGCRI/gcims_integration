@@ -22,7 +22,7 @@ root.render(
   <Router>
     <Navigation />
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/gcims_integration" element={<Home />} />
       <Route path="/models" element={<Models />} />     
       <Route path="/map" element={<Map />} />      
       <Route path="/health" element={<Health />} /> 
