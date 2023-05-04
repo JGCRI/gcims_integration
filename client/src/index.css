@@ -26,13 +26,18 @@ html {
   z-index: 2;
 }
 
+.content-body {
+  padding-bottom: 50px;
+}
+
+
 
 /******* Site Wide ********/
 
 .page-title {
   font-size: 60px;
   color: rgb(0,0,0,1);
-  margin-top: 80px;
+  margin-top: 50px;
   text-align: center;
   line-height: 1.2;
   padding-bottom: 50px;
@@ -49,6 +54,18 @@ html {
   padding-bottom: 20px;
 }
 
+.home-hr {
+  height: 2px; /* change the thickness */
+  width: 90%; /* change the width */
+  margin: 0 auto; /* center the horizontal rule */
+  border-top: 2px solid black !important;
+}
+
+.lower-hr {
+  margin-bottom: 50px;
+}
+
+
 /******* Navigation ********/
 
 .logo {
@@ -64,13 +81,15 @@ html {
   width: 100%;
   padding-right: 50px;
   padding-left: 50px;
+  background-color: rgb(0,0,0,1) !important;
 }
 
 .navbar-nav .nav-link {
   display: flex;
   align-items: center;
   color: #fff;
-  padding-top: 40px;
+  padding-top: 0px;
+  font-size: 20px;
 }
 
 .nav-link:hover {
@@ -110,7 +129,7 @@ html {
 .home-title {
   font-size: 60px;
   color: rgb(0,0,0,1);
-  margin-top: 100px;
+  margin-top: 60px;
   padding-bottom: 50px;
   padding-left: 100px;
   text-align: left;
@@ -118,7 +137,7 @@ html {
 }
 
 .home-logo {
-  margin-top: 10px;
+  margin-top: 40px;
   margin-right: 50px;
   height: 100px;
 }
@@ -139,22 +158,10 @@ html {
   padding-bottom: 20px;
 }
 
-.home-hr {
-  height: 2px; /* change the thickness */
-  width: 90%; /* change the width */
-  margin: 0 auto; /* center the horizontal rule */
-  border-top: 2px solid black !important;
-}
-
-
 .panel-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.panels-top{
-  padding-top:30px;
 }
 
 .panel {
@@ -245,13 +252,12 @@ html {
 }
 
 .panel-models {
-  margin: 50px;
+  margin: 0 30px;
 }
 
-/*** map ***/
+/******* Map ********/
 
 .body-map {
-  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -269,16 +275,12 @@ html {
 
 /***** Health ******/
 
-.body-health {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
 
 /***** Tables ******/
 
 .table {
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   border: 1px solid rgb(151, 151, 151);
 }

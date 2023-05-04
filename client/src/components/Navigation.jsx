@@ -22,7 +22,7 @@ function Navigation() {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto nav-left">
           <NavLink className="nav-link" to="/gcims_integration/home">
-              <div className="nav-icon"><AiFillHome /></div>Home
+              <div className="nav-icon"><AiFillHome /></div>
               </NavLink>
             <NavLink className="nav-link" to="/gcims_integration/models">
               <div className="nav-icon"><AiFillCode /></div> Models
@@ -33,7 +33,7 @@ function Navigation() {
             <NavLink className="nav-link" to="/gcims_integration/health">
               <div className="nav-icon"><BsFillHeartPulseFill /></div>Health
             </NavLink>
-            <NavLink className="nav-link" to="/gcims_integration/workflows">
+            <NavLink className="nav-link" to="/gcims_integration/workflow">
               <div className="nav-icon"><FaSitemap /></div>Workflow
             </NavLink>
             <NavLink className="nav-link" to="/gcims_integration/data">

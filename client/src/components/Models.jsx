@@ -18,8 +18,9 @@ function Models() {
               </div>
             </Col>
           </Row>
-          <hr className="home-hr" />
-          <Row className="panel-container-models">
+          <hr className="home-hr lower-hr" />
+          <Row className="content-body">
+          <div className="panel-container-models">
         <Panel
             className="panel panel-models"
             icon={<FaPython />}
@@ -35,6 +36,7 @@ function Models() {
             overlay="Coming soon..."
             link="#"
           />
+          </div>
           </Row>
         </Container>
       </div>

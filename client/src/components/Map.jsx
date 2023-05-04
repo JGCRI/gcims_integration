@@ -14,11 +14,13 @@ function Map() {
                 A map of all JGCRI software packages and how they are interconnected.
               </div>
           </Row>
-          <hr className="home-hr" />
-          <Row className="body-map">
+          <hr className="home-hr lower-hr" />
+          <Row className="content-body">
+            <div className="body-map">
           <a href={gcims_integration} target="_blank" rel="noreferrer">
             <img src={gcims_integration} alt="gcims_integration.jpg" className="mx-auto" />
           </a>
+          </div>
           </Row>
         </Container>
       </div>
