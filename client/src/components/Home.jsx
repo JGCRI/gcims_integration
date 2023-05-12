@@ -35,21 +35,21 @@ function Home() {
             icon={<AiFillCode />}
             title="Packaged Models"
             overlay="Templates to build robust models with continuous integration"
-            link="gcims_integration/#/models"
+            link="/#/models"
           />
           <Panel
             className="panel"
             icon={<FaMapMarkedAlt />}
             title="Software map"            
             overlay="Map of existing software and interconnections"
-            link="gcims_integration/#/map"
+            link="/#/map"
           />
           <Panel
             className="panel"
             icon={<BsFillHeartPulseFill />}
             title="Software Health"            
             overlay="Continuous tracking of software builds, docs, and tests"
-            link="gcims_integration/#/health"
+            link="/#/health"
           />
       </Row>
       <Row className="panel-container panels-bottom">
@@ -58,21 +58,21 @@ function Home() {
             icon={<FaSitemap />}
             title="Reproducible Workflows"            
             overlay="Containerized, scalable, reproducible, architecture"
-            link="gcims_integration/#/workflow"
+            link="/#/workflow"
           />
           <Panel
             className="panel"
             icon={<BsFillDatabaseFill />}
             title="Data Management"
             overlay="Curated data across project life-cycles"
-            link="gcims_integration/#/data"
+            link="/#/data"
           />
           <Panel
             className="panel"
             icon={<IoBarChartSharp />}
             title="Persistent Insights"
             overlay="Tools for visualization & analytics"
-            link="gcims_integration/#/visual"
+            link="/#/visual"
           />
       </Row>
         </Container>
