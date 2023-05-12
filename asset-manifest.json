@@ -1,18 +1,23 @@
 {
   "files": {
-    "main.css": "/gcims_integration/static/css/main.5d6dbcb7.css",
-    "main.js": "/gcims_integration/static/js/main.54e17534.js",
+    "main.css": "/gcims_integration/static/css/main.1d8b5829.css",
+    "main.js": "/gcims_integration/static/js/main.f3b3c0c5.js",
     "static/js/787.30524094.chunk.js": "/gcims_integration/static/js/787.30524094.chunk.js",
     "static/media/gcims_integration.jpg": "/gcims_integration/static/media/gcims_integration.9385bad7d78a57de169b.jpg",
+    "static/media/team_zarrar.png": "/gcims_integration/static/media/team_zarrar.eacf4040c5e9a3f142b1.png",
+    "static/media/team_mengqi.jpg": "/gcims_integration/static/media/team_mengqi.5c1a7d75dafebfe11582.jpg",
+    "static/media/team_chris.png": "/gcims_integration/static/media/team_chris.c70914eff9b706a9ee84.png",
+    "static/media/team_taryn.png": "/gcims_integration/static/media/team_taryn.b8e4d0b8d89cb4a2a24e.png",
+    "static/media/team_isaac.jpg": "/gcims_integration/static/media/team_isaac.34da726218758f0c025e.jpg",
     "static/media/PNNL_CENTER_FullColor.png": "/gcims_integration/static/media/PNNL_CENTER_FullColor.45dd62954fd9c1592e21.png",
     "static/media/PNNL_CENTER_White.png": "/gcims_integration/static/media/PNNL_CENTER_White.e6c43a164438145a3d26.png",
     "index.html": "/gcims_integration/index.html",
-    "main.5d6dbcb7.css.map": "/gcims_integration/static/css/main.5d6dbcb7.css.map",
-    "main.54e17534.js.map": "/gcims_integration/static/js/main.54e17534.js.map",
+    "main.1d8b5829.css.map": "/gcims_integration/static/css/main.1d8b5829.css.map",
+    "main.f3b3c0c5.js.map": "/gcims_integration/static/js/main.f3b3c0c5.js.map",
     "787.30524094.chunk.js.map": "/gcims_integration/static/js/787.30524094.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d6dbcb7.css",
-    "static/js/main.54e17534.js"
+    "static/css/main.1d8b5829.css",
+    "static/js/main.f3b3c0c5.js"
   ]
 }
