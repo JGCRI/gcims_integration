@@ -35,21 +35,21 @@ function Home() {
             icon={<AiFillCode />}
             title="Packaged Models"
             overlay="Templates to build robust models with continuous integration"
-            link="/#/models"
+            link="https://jgcri.github.io/gcims_integration/#/models"
           />
           <Panel
             className="panel"
             icon={<FaMapMarkedAlt />}
             title="Software map"            
             overlay="Map of existing software and interconnections"
-            link="/#/map"
+            link="https://jgcri.github.io/gcims_integration/#/map"
           />
           <Panel
             className="panel"
             icon={<BsFillHeartPulseFill />}
             title="Software Health"            
             overlay="Continuous tracking of software builds, docs, and tests"
-            link="/#/health"
+            link="https://jgcri.github.io/gcims_integration/#/health"
           />
       </Row>
       <Row className="panel-container panels-bottom">
@@ -58,21 +58,21 @@ function Home() {
             icon={<FaSitemap />}
             title="Reproducible Workflows"            
             overlay="Containerized, scalable, reproducible, architecture"
-            link="/#/workflow"
+            link="https://jgcri.github.io/gcims_integration/#/workflow"
           />
           <Panel
             className="panel"
             icon={<BsFillDatabaseFill />}
             title="Data Management"
             overlay="Curated data across project life-cycles"
-            link="/#/data"
+            link="https://jgcri.github.io/gcims_integration/#/data"
           />
           <Panel
             className="panel"
             icon={<IoBarChartSharp />}
             title="Persistent Insights"
             overlay="Tools for visualization & analytics"
-            link="/#/visual"
+            link="https://jgcri.github.io/gcims_integration/#/visual"
           />
       </Row>
         </Container>
