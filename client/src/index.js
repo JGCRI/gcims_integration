@@ -11,7 +11,9 @@ import {
   Health,
   Workflow,
   Data,
-  Visual
+  Visual,
+  Team,
+  Help
 } from "./components";
 import reportWebVitals from './reportWebVitals';
 
@@ -29,6 +31,8 @@ root.render(
       <Route path="/workflow" element={<Workflow />} />     
       <Route path="/data" element={<Data />} />      
       <Route path="/visual" element={<Visual />} /> 
+      <Route path="/team" element={<Team />} /> 
+      <Route path="/help" element={<Help />} /> 
     </Routes>
   </Router>,
 );

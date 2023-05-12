@@ -30,11 +30,11 @@ function Models() {
             target="_blank"
           />
           <Panel
-            className="panel panel-models"
+            className="panel panel-models in-progress"
             icon={<FaRProject />}
             title="Rtemplate"
             overlay="Coming soon..."
-            link="#"
+            //link="/#/models"
           />
           </div>
           </Row>

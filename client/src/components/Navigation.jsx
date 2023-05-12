@@ -44,9 +44,6 @@ function Navigation() {
             </NavLink>
             </Nav>
             <Nav className="ms-auto nav-right">
-              <NavLink className="nav-link" to="/about">
-                <div className="nav-icon"><BsFillInfoCircleFill /></div>About
-              </NavLink>
               <NavLink className="nav-link" to="/team">
                 <div className="nav-icon"><RiTeamFill /></div>Team
               </NavLink>

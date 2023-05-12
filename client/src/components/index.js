@@ -7,3 +7,5 @@ export { default as  Workflow} from "./Workflow";
 export { default as Data } from "./Data";
 export { default as Visual } from "./Visual";
 export { default as Panel } from "./Panel";
+export { default as Team } from "./Team";
+export { default as Help } from "./Help";

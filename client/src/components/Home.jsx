@@ -9,7 +9,7 @@ import { BsFillHeartPulseFill, BsFillDatabaseFill } from "react-icons/bs";
 
 function Home() {
   return (
-      <div className="content">
+      <div className="content home-page">
         <Container>
           <Row>
             <Col className="d-flex justify-content-between align-items-center">
@@ -35,21 +35,21 @@ function Home() {
             icon={<AiFillCode />}
             title="Packaged Models"
             overlay="Templates to build robust models with continuous integration"
-            link="/models"
+            link="/#/models"
           />
           <Panel
             className="panel"
             icon={<FaMapMarkedAlt />}
             title="Software map"            
             overlay="Map of existing software and interconnections"
-            link="/map"
+            link="/#/map"
           />
           <Panel
             className="panel"
             icon={<BsFillHeartPulseFill />}
             title="Software Health"            
             overlay="Continuous tracking of software builds, docs, and tests"
-            link="/health"
+            link="/#/health"
           />
       </Row>
       <Row className="panel-container panels-bottom">
@@ -58,21 +58,21 @@ function Home() {
             icon={<FaSitemap />}
             title="Reproducible Workflows"            
             overlay="Containerized, scalable, reproducible, architecture"
-            link="/workflow"
+            link="/#/workflow"
           />
           <Panel
             className="panel"
             icon={<BsFillDatabaseFill />}
             title="Data Management"
             overlay="Curated data across project life-cycles"
-            link="/data"
+            link="/#/data"
           />
           <Panel
             className="panel"
             icon={<IoBarChartSharp />}
             title="Persistent Insights"
             overlay="Tools for visualization & analytics"
-            link="/visual"
+            link="/#/visual"
           />
       </Row>
         </Container>
