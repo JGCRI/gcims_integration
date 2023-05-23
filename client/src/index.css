@@ -20,12 +20,17 @@ html {
   padding: 0 !important;
 }
 
+html {
+  overflow: hidden !important;
+}
+
 .content {
-  padding-top: 100px !important;
+  position: relative !important;
+  margin-top: 100px !important;
   padding-bottom: 50px !important;
   width: 100vw;
-  height: 100vh;
-  background-color: rgb(253, 248, 229, 0);
+  height: calc(100vh - 100px);
+  background-color: rgba(231, 226, 208, 0);
   overflow: auto !important;
 }
 
@@ -88,6 +93,7 @@ html {
 
 .bartop {
   position: fixed;
+  height: 100px !important;
   z-index: 1000000 !important;
   top: 0;
   width: 100%;
@@ -305,7 +311,7 @@ html {
   border-collapse: collapse;
   width: 80%;
   margin: 0 auto;
-  border: 1px solid rgb(151, 151, 151);
+  border: 1.4px solid rgb(0, 0, 0);
 }
 
 thead {
@@ -315,24 +321,22 @@ thead {
 }
 
 tbody tr:nth-of-type(even) {
-  background-color: rgb(255, 251, 228, 0.8)
+  background-color: rgba(221, 221, 221, 0.8)
 }
 
 tbody tr:nth-of-type(odd) {
   background-color: #ffffff;
 }
 
-
-
 tbody tr:hover {
-  background-color: #e2e6ea;
+  background-color: #88c3ff;
 }
 
 th,
 td {
   padding: 8px;
   text-align: center;
-  border: 1px solid #dee2e6;
+  border: 1px solid #b7b7b7;
 }
 
 
