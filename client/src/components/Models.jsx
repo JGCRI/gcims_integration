@@ -30,11 +30,11 @@ function Models() {
             target="_blank"
           />
           <Panel
-            className="panel panel-models in-progress"
+            className="panel panel-models"
             icon={<FaRProject />}
             title="Rtemplate"
-            overlay="Coming soon..."
-            //link="/#/models"
+            overlay="R package template with continuous integration"
+            link="https://github.com/JGCRI/pytemplate"
           />
           </div>
           </Row>
