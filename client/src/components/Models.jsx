@@ -34,7 +34,8 @@ function Models() {
             icon={<FaRProject />}
             title="Rtemplate"
             overlay="R package template with continuous integration"
-            link="https://github.com/JGCRI/pytemplate"
+            link="https://github.com/JGCRI/rtemplate"
+            target="_blank"
           />
           </div>
           </Row>
