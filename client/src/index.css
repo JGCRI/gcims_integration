@@ -361,6 +361,7 @@ td {
   height: 200px;
   object-fit: cover;
   object-position: center;
+  border: 1px solid #ccc;
 }
 
 .team-member h3 {
