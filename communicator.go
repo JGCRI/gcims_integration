@@ -70,44 +70,50 @@ func main() {
 		lenBuffer := make([]byte, 8)
 		buffer := make([]byte, BUFFER_LEN)
 		binary.BigEndian.PutUint64(lenBuffer, uint64(commandLen))
-		_, err = client.Write(lenBuffer)
-		if err != nil {
-			clientClose(err, client)
-			gracefulExit()
-		}
 		sent := 0
-		for (sent * BUFFER_LEN) < commandLen {
-			start := (sent * BUFFER_LEN)
-			copy(buffer, command[start:])
-			sendBuffer := bytes.Trim(buffer, "\x00")
-			//fmt.Println("sending bufffer: ", sendBuffer)
-			_, err = client.Write(sendBuffer)
+		for sent < len(lenBuffer) {
+			wrote, err := client.Write(lenBuffer)
 			if err != nil {
-				fmt.Println("Error sending data: ", err.Error())
-				break
+				clientClose(err, client)
+				gracefulExit()
 			}
-			sent++
+			sent += wrote
 		}
-		_, err = client.Read(lenBuffer)
-		if err != nil {
-			clientClose(err, client)
-			gracefulExit()
+		sent = 0
+		for sent < commandLen {
+			copy(buffer, command)
+			sendBuffer := bytes.Trim(buffer, "\x00")
+			wrote, err := client.Write(sendBuffer)
+			if err != nil {
+				clientClose(err, client)
+				gracefulExit()
+			}
+			sent += wrote
+		}
+		received := 0
+		for received < len(lenBuffer) {
+			read, err := client.Read(lenBuffer)
+			if err != nil {
+				clientClose(err, client)
+				gracefulExit()
+			}
+			received += read
 		}
 		outputLen := binary.BigEndian.Uint64(lenBuffer)
-		read := 0
+		received = 0
 		for index, _ := range buffer {
 			buffer[index] = 0
 		}
 		var output strings.Builder
-		for (read * BUFFER_LEN) < int(outputLen) {
-			_, err := client.Read(buffer)
+		for received < int(outputLen) {
+			read, err := client.Read(buffer)
 			if err != nil {
-				fmt.Println("Error reading output: ", err.Error())
-				break
+				clientClose(err, client)
+				gracefulExit()
 			}
 			recievedBuffer := bytes.Trim(buffer, "\x00")
 			output.Write(recievedBuffer)
-			read++
+			received += read
 		}
 		fmt.Print(output.String())
 	} else {
@@ -130,35 +136,43 @@ func gracefulExit() {
 func handleRequest(client net.Conn) {
 	lenBuffer := make([]byte, 8)
 	buffer := make([]byte, BUFFER_LEN)
-	_, err := client.Read(lenBuffer)
-	if err != nil {
-		clientClose(err, client)
+	received := 0
+	flag := 0
+	for received < len(lenBuffer) {
+		read, err := client.Read(lenBuffer)
+		if err != nil {
+			clientClose(err, client)
+			flag = 1
+			break
+		}
+		received += read
+	}
+	if flag == 1 {
 		return
 	}
 	commandLen := binary.BigEndian.Uint64(lenBuffer)
-	flag := 0
-	read := 0
+	flag = 0
+	received = 0
 	var output strings.Builder
-	for (read * BUFFER_LEN) < int(commandLen) {
-		_, err := client.Read(buffer)
+	for received < int(commandLen) {
+		read, err := client.Read(buffer)
 		if err != nil {
-			fmt.Println("Error reading:", err.Error())
+			clientClose(err, client)
 			flag = 1
 			break
 		}
 		recievedBuffer := bytes.Trim(buffer, "\x00")
 		output.Write(recievedBuffer)
-		read++
+		received += read
 	}
 	if flag == 1 {
-		clientClose(err, client)
 		return
 	}
 	outputStr := output.String()
-	outputStr = outputStr[:commandLen]
 	fmt.Println("Running Command: ", outputStr)
 	allCommands := strings.Split(outputStr, "|")
 	match := regexp.MustCompile(`[^\s"']+|"([^"]*)"|'([^']*)'`)
+	var err error
 	var errOut strings.Builder
 	var out strings.Builder
 	var lastOutput strings.Builder
@@ -182,9 +196,10 @@ func handleRequest(client net.Conn) {
 			command.Stdin = strings.NewReader(lastOutput.String())
 			err = command.Run()
 			if err != nil {
-				binary.BigEndian.PutUint64(lenBuffer, uint64(len(errOut.String())))
-				client.Write(lenBuffer)
-				client.Write([]byte(errOut.String()))
+				lastOutput.WriteString("Error Occured: \n")
+				lastOutput.WriteString(err.Error())
+				lastOutput.WriteString("\n\nStderr of program (if any): \n")
+				lastOutput.WriteString(errOut.String())
 				break
 			}
 		}
@@ -197,10 +212,32 @@ func handleRequest(client net.Conn) {
 		out.Reset()
 		errOut.Reset()
 	}
-	if err == nil {
-		binary.BigEndian.PutUint64(lenBuffer, uint64(len(lastOutput.String())))
-		client.Write(lenBuffer)
-		client.Write([]byte(lastOutput.String()))
+	binary.BigEndian.PutUint64(lenBuffer, uint64(len(lastOutput.String())))
+	sent := 0
+	for sent < len(lenBuffer) {
+		wrote, err := client.Write(lenBuffer)
+		if err != nil {
+			clientClose(err, client)
+			flag = 1
+			break
+		}
+		sent += wrote
+	}
+	if flag == 1 {
+		return
+	}
+	sent = 0
+	for sent < len(lastOutput.String()) {
+		wrote, err := client.Write([]byte(lastOutput.String()))
+		if err != nil {
+			clientClose(err, client)
+			flag = 1
+			break
+		}
+		sent += wrote
+	}
+	if flag == 1 {
+		return
 	}
 	client.Close()
 }
