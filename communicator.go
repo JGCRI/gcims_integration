@@ -59,10 +59,7 @@ func main() {
 			gracefulExit()
 		}
 		defer client.Close()
-		//var command string
-		//_, err = fmt.Scan(&command)
 		reader := bufio.NewReaderSize(os.Stdin, BUFFER_LEN)
-		//fmt.Println("Enter command\n")
 		command, err := reader.ReadString('\n')
 		if err != nil {
 			clientClose(err, client)
