@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/binary"
 	"fmt"
 	"math/rand"
@@ -49,154 +50,194 @@ func main() {
 				fmt.Println("Error accepting: ", err.Error())
 				os.Exit(1)
 			}
-			go handleRequest(client)
+			handleRequest(client)
 		}
 	} else if arguments[0] == "-c" {
 		client, err := net.Dial(CONNECTION_TYPE, DEFAULT_HOST+":"+listen_port)
 		if err != nil {
-			fmt.Println(err)
-			return
+			clientClose(err, client)
+			gracefulExit()
 		}
 		defer client.Close()
 		reader := bufio.NewReaderSize(os.Stdin, BUFFER_LEN)
-		fmt.Println("Start entering commands\n")
-		for {
-			command, err := reader.ReadString('\n')
-			if err != nil {
-				fmt.Println(err)
-				break
-			}
-			command = strings.Trim(command, "\n")
-			commandLen := len(command)
-			lenBuffer := make([]byte, 8)
-			buffer := make([]byte, BUFFER_LEN)
-			binary.BigEndian.PutUint64(lenBuffer, uint64(commandLen))
-			_, err = client.Write(lenBuffer)
-			if err != nil {
-				fmt.Println("Error sending len: ", err.Error())
-				break
-			}
-			flag := 0
-			sent := 0
-			for (sent * BUFFER_LEN) < commandLen {
-				start := (sent * BUFFER_LEN)
-				copy(buffer, command[start:])
-				_, err = client.Write(buffer)
-				if err != nil {
-					fmt.Println("Error sending data: ", err.Error())
-					flag = 1
-					break
-				}
-				sent++
-			}
-			if flag == 1 {
-				break
-			}
-			_, err = client.Read(lenBuffer)
-			if err != nil {
-				fmt.Println("Error reading len: ", err.Error())
-				break
-			}
-			outputLen := binary.BigEndian.Uint64(lenBuffer)
-			flag = 0
-			read := 0
-			for index, _ := range buffer {
-				buffer[index] = 0
-			}
-			var output strings.Builder
-			for (read * BUFFER_LEN) < int(outputLen) {
-				_, err := client.Read(buffer)
-				if err != nil {
-					fmt.Println("Error reading output: ", err.Error())
-					flag = 1
-					break
-				}
-				output.Write(buffer)
-				read++
-			}
-			if flag == 1 {
-				fmt.Println("Error reading len: ", err.Error())
-				break
-			}
-			fmt.Println(output.String())
+		command, err := reader.ReadString('\n')
+		if err != nil {
+			clientClose(err, client)
+			gracefulExit()
 		}
+		command = strings.Trim(command, "\n")
+		commandLen := len(command)
+		lenBuffer := make([]byte, 8)
+		buffer := make([]byte, BUFFER_LEN)
+		binary.BigEndian.PutUint64(lenBuffer, uint64(commandLen))
+		sent := 0
+		for sent < len(lenBuffer) {
+			wrote, err := client.Write(lenBuffer)
+			if err != nil {
+				clientClose(err, client)
+				gracefulExit()
+			}
+			sent += wrote
+		}
+		sent = 0
+		for sent < commandLen {
+			copy(buffer, command)
+			sendBuffer := bytes.Trim(buffer, "\x00")
+			wrote, err := client.Write(sendBuffer)
+			if err != nil {
+				clientClose(err, client)
+				gracefulExit()
+			}
+			sent += wrote
+		}
+		received := 0
+		for received < len(lenBuffer) {
+			read, err := client.Read(lenBuffer)
+			if err != nil {
+				clientClose(err, client)
+				gracefulExit()
+			}
+			received += read
+		}
+		outputLen := binary.BigEndian.Uint64(lenBuffer)
+		received = 0
+		for index, _ := range buffer {
+			buffer[index] = 0
+		}
+		var output strings.Builder
+		for received < int(outputLen) {
+			read, err := client.Read(buffer)
+			if err != nil {
+				clientClose(err, client)
+				gracefulExit()
+			}
+			recievedBuffer := bytes.Trim(buffer, "\x00")
+			output.Write(recievedBuffer)
+			received += read
+		}
+		fmt.Print(output.String())
 	} else {
-		fmt.Println("Invaliid option...exiting")
+		fmt.Println("Invalid option")
+		gracefulExit()
 	}
 }
 
+func clientClose(err error, client net.Conn) {
+	fmt.Println("Encountered an error: ")
+	fmt.Println(err.Error())
+	client.Close()
+}
+
+func gracefulExit() {
+	fmt.Println("Exiting...")
+	os.Exit(1)
+}
+
 func handleRequest(client net.Conn) {
-	for {
-		lenBuffer := make([]byte, 8)
-		buffer := make([]byte, BUFFER_LEN)
-		_, err := client.Read(lenBuffer)
+	lenBuffer := make([]byte, 8)
+	buffer := make([]byte, BUFFER_LEN)
+	received := 0
+	flag := 0
+	for received < len(lenBuffer) {
+		read, err := client.Read(lenBuffer)
 		if err != nil {
-			fmt.Println("Error reading len:", err.Error())
+			clientClose(err, client)
+			flag = 1
 			break
 		}
-		commandLen := binary.BigEndian.Uint64(lenBuffer)
-		flag := 0
-		read := 0
-		var output strings.Builder
-		for (read * BUFFER_LEN) < int(commandLen) {
-			_, err := client.Read(buffer)
+		received += read
+	}
+	if flag == 1 {
+		return
+	}
+	commandLen := binary.BigEndian.Uint64(lenBuffer)
+	flag = 0
+	received = 0
+	var output strings.Builder
+	for received < int(commandLen) {
+		read, err := client.Read(buffer)
+		if err != nil {
+			clientClose(err, client)
+			flag = 1
+			break
+		}
+		recievedBuffer := bytes.Trim(buffer, "\x00")
+		output.Write(recievedBuffer)
+		received += read
+	}
+	if flag == 1 {
+		return
+	}
+	outputStr := output.String()
+	fmt.Println("Running Command: ", outputStr)
+	allCommands := strings.Split(outputStr, "|")
+	match := regexp.MustCompile(`[^\s"']+|"([^"]*)"|'([^']*)'`)
+	var err error
+	var errOut strings.Builder
+	var out strings.Builder
+	var lastOutput strings.Builder
+	for _, element := range allCommands {
+		element = strings.Trim(element, " ")
+		arguments := match.FindAllString(element, -1)
+		for i, argument := range arguments {
+			arguments[i] = strings.Trim(argument, "'\"")
+		}
+		if len(arguments) > 0 {
+			command := exec.Command(string(arguments[0]), arguments[1:]...)
+			input, err := command.StdinPipe()
 			if err != nil {
-				fmt.Println("Error reading:", err.Error())
-				flag = 1
+				fmt.Println(err.Error())
+				input.Close()
 				break
 			}
-			output.Write(buffer)
-			read++
+			defer input.Close()
+			command.Stdout = &out
+			command.Stderr = &errOut
+			command.Stdin = strings.NewReader(lastOutput.String())
+			err = command.Run()
+			if err != nil {
+				lastOutput.WriteString("Error Occured: \n")
+				lastOutput.WriteString(err.Error())
+				lastOutput.WriteString("\n\nStderr of program (if any): \n")
+				lastOutput.WriteString(errOut.String())
+				break
+			}
 		}
-		outputStr := output.String()
-		outputStr = outputStr[:commandLen]
-		fmt.Println("Running Command: ", outputStr)
-		if flag == 1 {
-			fmt.Println("Error reading len:", err.Error())
+		lastOutput.Reset()
+		_, err = lastOutput.WriteString(out.String())
+		if err != nil {
+			fmt.Println("Error reading command output: ", err.Error())
 			break
 		}
-		allCommands := strings.Split(outputStr, "|")
-		match := regexp.MustCompile(`[^\s"']+|"([^"]*)"|'([^']*)'`)
-		var errOut strings.Builder
-		var out strings.Builder
-		var lastOutput strings.Builder
-		for _, element := range allCommands {
-			element = strings.Trim(element, " ")
-			arguments := match.FindAllString(element, -1)
-			for i, argument := range arguments {
-				arguments[i] = strings.Trim(argument, "'\"")
-			}
-			if len(arguments) > 0 {
-				command := exec.Command(string(arguments[0]), arguments[1:]...)
-				input, err := command.StdinPipe()
-				if err != nil {
-					fmt.Println(err)
-				}
-				defer input.Close()
-				command.Stdout = &out
-				command.Stderr = &errOut
-				command.Stdin = strings.NewReader(lastOutput.String())
-				err = command.Run()
-				if err != nil {
-					binary.BigEndian.PutUint64(lenBuffer, uint64(len(errOut.String())))
-					client.Write(lenBuffer)
-					client.Write([]byte(errOut.String()))
-					break
-				}
-			}
-			lastOutput.Reset()
-			_, err = lastOutput.WriteString(out.String())
-			if err != nil {
-				fmt.Println("Error reading command output: ", err.Error())
-			}
-			out.Reset()
-			errOut.Reset()
+		out.Reset()
+		errOut.Reset()
+	}
+	binary.BigEndian.PutUint64(lenBuffer, uint64(len(lastOutput.String())))
+	sent := 0
+	for sent < len(lenBuffer) {
+		wrote, err := client.Write(lenBuffer)
+		if err != nil {
+			clientClose(err, client)
+			flag = 1
+			break
 		}
-		if err == nil {
-			binary.BigEndian.PutUint64(lenBuffer, uint64(len(lastOutput.String())))
-			client.Write(lenBuffer)
-			client.Write([]byte(lastOutput.String()))
+		sent += wrote
+	}
+	if flag == 1 {
+		return
+	}
+	sent = 0
+	for sent < len(lastOutput.String()) {
+		wrote, err := client.Write([]byte(lastOutput.String()))
+		if err != nil {
+			clientClose(err, client)
+			flag = 1
+			break
 		}
+		sent += wrote
+	}
+	if flag == 1 {
+		return
 	}
 	client.Close()
 }
